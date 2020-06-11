@@ -1,0 +1,13 @@
+<%= link_to "Mindshare", root_path %>
+
+<% if logged_in? %>
+	<%= link_to "User index", users_path %>
+	<%= link_to "Post index", root_path %>
+	<%= link_to "Logout", logout_path, method: :delete %>
+<% else %>
+	<%= link_to "Signup", signup_path %>
+	<%= link_to "Login", login_path %>
+	
+<% end %>	
+	
+	

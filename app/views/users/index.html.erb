@@ -4,13 +4,17 @@
 <ul>
 	<% @users_pos.each do |user_pos| %>
 	<li>
-		<%= link_to "#{user_pos.name}", user_path(user) %>
+		<%= user_pos.name %>
+		<%= link_to "detail", "/users/#{current_user.id}" %>
 	</li>
+	<% end %>
 </ul>
 
 <ul>
 	<% @users_neg.each do |user_neg| %>
 	<li>
-		<%= link_to "#{user_neg.name}", user_path(user) %>
+		<%= user_neg.name %>
+		<%= link_to "detail", "/users/#{current_user.id}" %>
 	</li>
+	<% end %>
 </ul>

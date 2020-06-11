@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+	before_action :require_user_logged_in, only: [:index, :show]
 	
 	def index
-		@users_pos = User.where(status: "Positive").order(id: :desc).page(params[:page]).per(25)
-		@users_neg = User.where(status: "negative").order(id: :desc).page(params[:page]).per(25)
+		@users_pos = User.where(mind: "positive").order(id: :desc)
+		@users_neg = User.where(mind: "negative").order(id: :desc)
+		@user = User.find_by(id: params[:id])
 	end
 	def show
 		@user = User.find_by(id: params[:id])
