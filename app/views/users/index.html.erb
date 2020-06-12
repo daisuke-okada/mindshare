@@ -2,8 +2,8 @@
 
 <ul>
 	<% @users_pos.each do |user_pos| %>
+	<p>Positive user</p>
 	<li>
-		<p>Positive user</p>
 		<%= user_pos.name %>
 		<%= link_to "detail", "/users/#{user_pos.id}" %>
 	</li>
@@ -12,8 +12,8 @@
 
 <ul>
 	<% @users_neg.each do |user_neg| %>
+	<p>Negative user</p>
 	<li>
-		<p>Negative user</p>
 		<%= user_neg.name %>
 		<%= link_to "detail", "/users/#{user_neg.id}" %>
 	</li>

@@ -4,4 +4,6 @@ class User < ApplicationRecord
 	validates :mind, presence: true
 	
 	has_secure_password
+	
+	has_many :posts
 end

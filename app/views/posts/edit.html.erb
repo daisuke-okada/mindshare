@@ -1,0 +1,15 @@
+<h1>Action editer</h1>
+
+<%= form_with(model: @post, local: true) do |f| %>
+
+		<%= f.label :status, "Status" %>
+		<%= f.select :status, [["Positive", "positive"], ["Negative", "negative"]] %>
+
+		<%= f.label :content , "Action" %>
+		<%= f.text_field :content %>
+
+		<%= f.submit "edit" %>
+	<% end %>
+	
+<%= link_to "back to action detail", post_path %>
+

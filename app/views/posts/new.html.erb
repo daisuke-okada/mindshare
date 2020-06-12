@@ -1,0 +1,17 @@
+<h1>Action Post</h1>
+
+<ul>
+	<%= form_with(model: @post, local:true) do |f| %>
+		<%= render "layouts/error_messages", model: f.object %>
+		<li>
+			<%= f.label :status, "Status" %>
+			<%= f.select :status, [["Positive", "positive"], ["Negative", "negative"]] %>
+		</li>
+		<li>
+			<%= f.label :content , "Action" %>
+			<%= f.text_field :content %>
+		</li>
+		<%= f.submit "Action Post!" %>
+	<% end %>
+	
+</ul>
