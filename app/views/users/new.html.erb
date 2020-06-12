@@ -13,7 +13,7 @@
 			</li>
 			<li>
 				<%= f.label :mind, "Mind" %>
-				<%= f.text_field :mind %>
+				<%= f.select :mind, [["Positive", "positive"], ["Negative", "negative"]] %>
 			</li>
 			<li>
 				<%= f.label :password, "Password" %>

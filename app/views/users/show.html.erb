@@ -13,6 +13,10 @@
 		<p>mind</p>
 		<%= @user.mind %>
 	</li>
+	<% if @user.id == current_user.id %>
 	
+	<%= link_to "edit", edit_user_path %>
+	<%= link_to "Delete your account", @user, method: :delete, data: { confirm: "You sure? "} %>
 	
+	<% end %>
 </ul>
