@@ -1,8 +1,8 @@
 <% if logged_in? %>
     <h1>Welocome back !!</h1>
-    <p>Your name : <%= current_user.name %></p>
-    <p>Your email : <%= current_user.email %></p>
-    <p>Your mind : <%= current_user.mind %></p>
+    <p>Name : <%= current_user.name %></p>
+    <p>Email : <%= current_user.email %></p>
+    <p>Mind : <%= current_user.mind %></p>
 <% else %>
     <h1>Welcome to the Mindshare</h1>
     <%= link_to "Signup now!!", signup_path %>

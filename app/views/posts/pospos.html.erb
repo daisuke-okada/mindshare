@@ -1,5 +1,11 @@
 <h1>Positive_Action × Positive_Mind</h1>
+<ul>
+	
+	<% @pos_pos.each do |pospos| %>
+	<li>
+	<%= link_to pospos.content, post_path(pospos.id) %>
+	</li>
+		
+	<% end %>
 
-<%= @posts_pos.each do |post_pos| %>
-<%= post_pos %>
-<% end %>
+</ul>

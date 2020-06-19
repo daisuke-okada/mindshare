@@ -2,17 +2,26 @@
 
 <ul>
 	<li>
-		<p>Name</p>
+		Name:
 		<%= @user.name %>
 	</li>
 	<li>
-		<p>email</p>
+		email:
 		<%= @user.email %>
 	</li>
+	
+		<%= form_with(model: @user, local: true) do |f| %>
+			<%= f.label :mind, "mind" %>
+			<%= f.select :mind, [["Positive", "positive"], ["Negative", "negative"]] %>
+			<%= f.submit "update" %>
+		<% end %>
 	<li>
-		<p>mind</p>
-		<%= @user.mind %>
+		Post index:
+		<% @posts.each do |post| %>
+		<%= link_to post.content, post_path %>
+		<% end %>
 	</li>
+	
 	<% if @user.id == current_user.id %>
 	
 	<%= link_to "edit", edit_user_path %>

@@ -26,7 +26,8 @@ class PostsController < ApplicationController
     end 
   end
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
   def update
     @post = Post.find(params[:id])
@@ -45,21 +46,25 @@ class PostsController < ApplicationController
     flash[:danger] = "Successfully deleted"
     redirect_to posts_path
   end
+  
+  
   def pospos
-    @posts_pos = Post.users.where(status: "positive")
     @users_pos = User.where(mind: "positive")
+    @pos_pos = feed_posts_pos.where(status: "positive")
   end
+  
+  
   def posneg
-    @posts_pos = Post.where(status: "positive")
     @users_neg = User.where(mind: "negative")
+    @pos_neg = feed_posts_neg.where(status: "positive")
   end
   def negpos
-    @posts_neg = Post.where(status: "negative")
     @users_pos = User.where(mind: "positive")
+    @neg_pos = feed_posts_pos.where(status: "negative")
   end
   def negneg
-    @posts_neg = Post.where(status: "negative")
     @users_neg = User.where(mind: "negative")
+    @neg_neg = feed_posts_neg.where(status: "negative")
   end
   
   private

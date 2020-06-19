@@ -1,6 +1,7 @@
 <%= link_to "Mindshare", root_path %>
 
 <% if logged_in? %>
+	<%= link_to "Post new", new_post_path%>
 	<%= link_to "User index", users_path %>
 	<%= link_to "Action index", posts_path %>
 	<%= link_to "Logout", logout_path, method: :delete %>

@@ -9,10 +9,14 @@
 		<p>Action</p>
 		<%= @post.content %>
 	</li>
-	<% if @user.id == current_user.id %>
+	<li>
+		<p>User</p>
+		<%= @user.name%>
+	</li>
+
+	<% if @post.user_id == current_user.id %>
 	
 	<%= link_to "edit", edit_post_path %>
-	<%= link_to "Delete your account", @post, method: :delete, data: { confirm: "You sure? "} %>
 	
 	<% end %>
 </ul>

@@ -1,2 +1,11 @@
-<h1>Actions#posneg</h1>
-<p>Find me in app/views/actions/posneg.html.erb</p>
+<h1>Positive_Action × Negative_Mind</h1>
+<ul>
+	
+	<% @pos_neg.each do |posneg| %>
+	<li>
+	<%= link_to posneg.content, post_path(posneg.id)%>
+	</li>
+		
+	<% end %>
+
+</ul>
