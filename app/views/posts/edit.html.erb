@@ -1,15 +1,24 @@
-<h1>Action editer</h1>
+<div class="text-center">
+  <h1>Post edit</h1>
+</div>
+<div class="row">
+	<div class="col-sm-6 offset-sm-3">
+		
+	
+		<%= form_with(model: @post, local: true) do |f| %>
+		<div class="form-group">
 
-<%= form_with(model: @post, local: true) do |f| %>
-
-		<%= f.label :status, "Status" %>
-		<%= f.select :status, [["Positive", "positive"], ["Negative", "negative"]] %>
-
-		<%= f.label :content , "Action" %>
-		<%= f.text_field :content %>
-
-		<%= f.submit "edit" %>
+			<%= f.label :status, "Status" %>
+			<%= f.select :status, [["Positive", "positive"], ["Negative", "negative"]], class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :content , "Action" %>
+			<%= f.text_field :content, class: 'form-control' %>
+		</div>
+		<%= f.submit "edit", class: 'btn btn-danger btn-block' %>
 	<% end %>
 	
-<%= link_to "back to action detail", post_path %>
+<%= link_to "back to detail", post_path, class: 'btn btn-primary mt-4' %>
 
+	</div>
+</div>

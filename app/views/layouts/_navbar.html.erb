@@ -1,14 +1,21 @@
-<%= link_to "Mindshare", root_path %>
-
-<% if logged_in? %>
-	<%= link_to "Post new", new_post_path%>
-	<%= link_to "User index", users_path %>
-	<%= link_to "Action index", posts_path %>
-	<%= link_to "Logout", logout_path, method: :delete %>
-<% else %>
-	<%= link_to "Signup", signup_path %>
-	<%= link_to "Login", login_path %>
-	
-<% end %>	
-	
-	
+<header class="mb-4">
+	<nav class="navbar navbar-expand-sm navbar-light bg-light">
+		<a class="navbar-brand" href="/">Mindshare</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<% if logged_in? %>
+					<li class="nav-item"><%= link_to "Post new", new_post_path, class: 'nav-link' %></li>
+					<li class="nav-item"><%= link_to "User index", users_path, class: 'nav-link' %></li>
+					<li class="nav-item"><%= link_to "Post index", posts_path, class: 'nav-link' %></li>
+					<li class="nav-item"><%= link_to "Logout", logout_path, method: :delete, class: 'nav-link' %></li>
+				<% else %>
+					<li class="nav-item"><%= link_to "Signup", signup_path, class: "nav-link" %></li>
+					<li class="nav-item"><%= link_to "Login", login_path, class:"nav-link" %></li>
+				<% end %>	
+			</ul>
+		</div>
+	</nav>	
+</header>

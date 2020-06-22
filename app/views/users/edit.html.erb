@@ -1,26 +1,32 @@
-<h1>User edit</h1>
+<div class="text-center">
+  <h1>User edit</h1>
+</div>
 
-<%= form_with(model: @user, local: true) do |f| %>
-	<li>
-		<%= f.label :name, "Name" %>
-		<%= f.text_field :name %>
-	</li>
-	<li>
-		<%= f.label :email, "email" %>
-		<%= f.email_field :email %>
-	</li>
-	<li>
-		<%= f.label :mind, "mind" %>
-		<%= f.select :mind, [["Positive", "positive"], ["Negative", "negative"]] %>
-	</li>
-	<li>
-		<%= f.label :password, "Password" %>
-		<%= f.password_field :password%>
-	</li>
-	<li>
-		<%= f.submit "edit" %>
-	</li>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
 
-<% end %>
+		<%= form_with(model: @user, local: true) do |f| %>
+			<div class="form-group">
+				<%= f.label :name, "Name" %>
+				<%= f.text_field :name, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :email, "email" %>
+				<%= f.email_field :email, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :mind, "mind" %>
+				<%= f.select :mind, [["Positive", "positive"], ["Negative", "negative"]], class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :password, "Password" %>
+				<%= f.password_field :password, class: 'form-control' %>
+			</div>
+			<%= f.submit "edit", class: 'btn btn-danger btn-block' %>
+			
 
-<%= link_to "back to detail", user_path %>
+		<% end %>
+
+		<%= link_to "back to detail", user_path, class: 'btn btn-primary mt-4' %>
+	</div>
+</div>

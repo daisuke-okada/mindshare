@@ -1,31 +1,49 @@
-<h1>User details</h1>
-
-<ul>
-	<li>
-		Name:
-		<%= @user.name %>
-	</li>
-	<li>
-		email:
-		<%= @user.email %>
-	</li>
-	
-		<%= form_with(model: @user, local: true) do |f| %>
-			<%= f.label :mind, "mind" %>
-			<%= f.select :mind, [["Positive", "positive"], ["Negative", "negative"]] %>
-			<%= f.submit "update" %>
-		<% end %>
-	<li>
-		Post index:
-		<% @posts.each do |post| %>
-		<%= link_to post.content, post %>
-		<% end %>
-	</li>
-	
-	<% if @user.id == current_user.id %>
-	
-	<%= link_to "edit", edit_user_path %>
-	<%= link_to "Delete your account", @user, method: :delete, data: { confirm: "You sure? "} %>
-	
-	<% end %>
-</ul>
+<div class="text-left">
+  <h1>User details</h1>
+</div>				
+<div class="row">
+	<div class="col-sm-5">
+		<div class="row">
+		<label class="col-sm-2">Name: </label>
+			<div class="col-sm-3 text-left"><%= @user.name %></div>	
+		</div>
+		<div class="row">
+		<label class="col-sm-2">Email: </label>
+			<div class="col-sm-3 text-left"><%= @user.email %></div>	
+		</div>
+		<div class="row">
+			<% if @user.id == current_user.id %>
+				<%= form_with(model: @user, local: true) do |f| %>
+					<label class="col-sm-3">
+						<%= f.label :mind, "Mind: " %>
+					</label>
+						<%= f.select :mind, [["Positive", "positive"], ["Negative", "negative"]], class: 'col-sm-5' %>
+						<%= f.submit "update", class: 'btn btn-primary col-sm-4' %>
+				<% end %>
+		</div>
+				<% else %>
+					<div class="row">
+						<label class="col-sm-2">Mind: </label>
+						<div class="col-sm-3 text-left"><%= @user.mind %></div>	
+					</div>
+				<% end %>
+				
+				<% if @user.id == current_user.id %>
+					<%= link_to "edit", edit_user_path %><br>
+					<%= link_to "Delete your account", @user, method: :delete, data: { confirm: "You sure? "}, class: 'mt-4 btn btn-danger' %>
+				<% end %>
+		</div>	
+			<div class="col-sm-6">
+				<h1>Post index</h1>
+				
+				<table class="table col-sm-6 offset-sm-4">
+					<% @posts.each do |post| %>
+						<tr>
+							<td class="text-center">
+								<%= link_to post.content, post %>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+</div>				

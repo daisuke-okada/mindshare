@@ -1,11 +1,18 @@
 <h1>Positive_Action × Positive_Mind</h1>
-<ul>
-	
+<table class="table table-sm col-sm-5">
+	<th>Name</th>
+	<th>Post</th>
 	<% @pos_pos.each do |pospos| %>
-	<li>
-	<%= link_to pospos.content, post_path(pospos.id) %>
-	</li>
-		
+	<div class="row">
+		<tr>
+			<td>
+				<%= pospos.user.name%>
+			</td>
+			<td>
+				<%= link_to pospos.content, post_path(pospos.id) %>
+			</td>
+		</tr>	
+	</div>
 	<% end %>
 
-</ul>
+</table>

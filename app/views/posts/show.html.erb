@@ -1,22 +1,15 @@
-<h1>Actions detail</h1>
-
-<ul>
-	<li>
-		<p>Status</p>
-		<%= @post.status %>
-	</li>
-	<li>
-		<p>Action</p>
-		<%= @post.content %>
-	</li>
-	<li>
-		<p>User</p>
-		<%= @post.user.name%>
-	</li>
-
+<div class="text-left">
+  <h1>Post detail</h1>
+</div>
+<div class="row">
+	<label class="col-sm-6">Status: </label>
+		<div class="col-sm-6 text-left"><%= @post.status %></div>
+	<label class="col-sm-6">Post: </label>
+		<div class="col-sm-6 text-left"><%= @post.content %></div>
+	<label class="col-sm-6">User: </label>
+		<div class="col-sm-6 text-left"><%= @post.user.name %></div>
 	<% if @post.user.id == current_user.id %>
-	
-	<%= link_to "edit", edit_post_path(@post) %>
-	
+		<%= link_to "edit", edit_post_path(@post), class: 'btn btn-primary' %>
 	<% end %>
-</ul>
+	</div>
+</div>

@@ -1,11 +1,18 @@
 <h1>Negative_Action × Positive_Mind</h1>
-<ul>
-	
+<table class="table table-sm col-sm-5">
+	<th>Name</th>
+	<th>Post</th>
 	<% @neg_pos.each do |negpos| %>
-	<li>
-	<%= link_to negpos.content, post_path(negpos.id) %>
-	</li>
-		
+	<div class="row">
+		<tr>
+			<td>
+				<%= negpos.user.name %>
+			</td>
+			<td>
+				<%= link_to negpos.content, post_path(negpos.id) %>
+			</td>
+		</tr>
+	</div>
 	<% end %>
 
-</ul>
+</table>	

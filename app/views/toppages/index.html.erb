@@ -1,8 +1,23 @@
+        
+        
 <% if logged_in? %>
     <h1>Welocome back !!</h1>
-    <p>Name : <%= current_user.name %></p>
-    <p>Email : <%= current_user.email %></p>
-    <p>Mind : <%= current_user.mind %></p>
+    <div class="row">
+      <table>
+        <tr>
+          <th class="text-center">Name: </th>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th class="text-center">Email: </th>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th class="text-center">Mind: </th>
+          <td><%= current_user.mind %></td>
+        </tr>
+      </table>
+    </div>
 <% else %>
     <h1>Welcome to the Mindshare</h1>
     <%= link_to "Signup now!!", signup_path %>
